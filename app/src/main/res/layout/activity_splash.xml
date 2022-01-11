@@ -8,6 +8,15 @@
     android:layout_height="match_parent"
     tools:context=".ui.splash.SplashActivity">
 
+    <TextView
+      android:id="@+id/title"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:text="@string/i_am_a_splash_screen"
+      android:textColor="@color/black"
+      android:textSize="100sp"
+      android:gravity="center"/>
+
   </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

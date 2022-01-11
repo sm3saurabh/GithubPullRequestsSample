@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
+import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import dev.saurabhmishra.githubpullrequests.R
 import dev.saurabhmishra.githubpullrequests.base.BaseActivity
@@ -12,6 +14,7 @@ import dev.saurabhmishra.githubpullrequests.extensions.safeLaunch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>() {
@@ -36,16 +39,23 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>() {
 
     private fun setupPagerAndAdapter() {
         lifecycleScope.safeLaunch {
-            viewModel.pagedPullRequests.collectLatest(pullRequestsAdapter::submitData)
+            viewModel.pagedPullRequests.collect { pagingData ->
+                pullRequestsAdapter.submitData(pagingData)
+            }
         }
     }
 
     private fun setupRecycler() {
-        pullRequestsAdapter.withLoadStateFooter(
-            footer = PullRequestLoadingFooter {
-                pullRequestsAdapter.retry()
-            }
-        )
+        binding.recycler.run {
+            layoutManager = LinearLayoutManager(this@HomeActivity)
+            setHasFixedSize(true)
+            adapter = pullRequestsAdapter.withLoadStateFooter(
+                footer = PullRequestLoadingFooter {
+                    pullRequestsAdapter.retry()
+                }
+            )
+        }
+
     }
 
     companion object {

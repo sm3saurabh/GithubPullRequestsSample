@@ -27,7 +27,7 @@ class SplashActivity : BaseActivity<SplashViewModel, ActivitySplashBinding>() {
         super.onCreate(savedInstanceState)
 
         lifecycleScope.safeLaunch {
-            delay(2000L)
+            delay(3000L)
             HomeActivity.launch(this@SplashActivity)
         }
     }

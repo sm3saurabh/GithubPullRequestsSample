@@ -6,8 +6,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import dev.saurabhmishra.githubpullrequests.R
 import dev.saurabhmishra.githubpullrequests.databinding.PullRequestItemBinding
+import dev.saurabhmishra.githubpullrequests.extensions.formatPullRequestDate
 import dev.saurabhmishra.githubpullrequests.models.PullRequest
 
 class PullRequestsAdapter :
@@ -32,7 +34,11 @@ class PullRequestsAdapter :
 
         fun bind(pullRequest: PullRequest?) {
             pullRequest?.also {
-
+                binding.title.text = pullRequest.title
+                binding.closedAt.text = pullRequest.closedAt?.formatPullRequestDate().orEmpty()
+                binding.createdAt.text = pullRequest.createdAt?.formatPullRequestDate().orEmpty()
+                binding.userName.text = pullRequest.user?.login.orEmpty()
+                binding.profileImage.load(pullRequest.user?.avatarUrl)
             }
         }
     }
