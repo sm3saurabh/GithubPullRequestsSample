@@ -6,10 +6,6 @@ import com.squareup.moshi.JsonClass
 import com.squareup.moshi.Json
 
 
-data class PullRequests(
-    val requests: List<PullRequest>
-)
-
 @JsonClass(generateAdapter = true)
 @Parcelize
 data class PullRequest(

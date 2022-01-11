@@ -6,7 +6,7 @@ import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 
-private val defaultCoroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
+val defaultCoroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
     // On debug mode, we want the app to fail fast, so that we can see and correct the behavior
     // On other modes, failing is probably not an option
     if (BuildConfig.DEBUG) {

@@ -13,7 +13,6 @@ suspend fun <T> safeApiCall(
         try {
             SafeResult.Success(apiCall.invoke())
         } catch (throwable: Throwable) {
-            throwable.printStackTrace()
             Wood.error(throwable.localizedMessage.orEmpty(), throwable)
             when (throwable) {
                 is HttpException -> {
