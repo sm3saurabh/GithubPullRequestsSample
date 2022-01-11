@@ -7,16 +7,16 @@ import dev.saurabhmishra.githubpullrequests.utils.safeApiCall
 import kotlin.coroutines.CoroutineContext
 
 interface GithubNetworkSource {
-    suspend fun getGithubPullRequests(): SafeResult<List<PullRequest>>
+    suspend fun getGithubPullRequests(perPage: Int, page: Int): SafeResult<List<PullRequest>>
 }
 
 class GithubNetworkSourceImpl(
     private val githubApi: GithubApi,
     private val executionContext: CoroutineContext
 ) : GithubNetworkSource {
-    override suspend fun getGithubPullRequests(): SafeResult<List<PullRequest>> {
+    override suspend fun getGithubPullRequests(perPage: Int, page: Int): SafeResult<List<PullRequest>> {
         return safeApiCall(executionContext) {
-            githubApi.getClosedPullRequests()
+            githubApi.getClosedPullRequests(perPage, page)
         }
     }
 

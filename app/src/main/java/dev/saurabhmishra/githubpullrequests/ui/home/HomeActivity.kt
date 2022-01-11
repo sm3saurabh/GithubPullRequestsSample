@@ -1,10 +1,12 @@
 package dev.saurabhmishra.githubpullrequests.ui.home
 
 import android.os.Bundle
+import dagger.hilt.android.AndroidEntryPoint
 import dev.saurabhmishra.githubpullrequests.R
 import dev.saurabhmishra.githubpullrequests.base.BaseActivity
 import dev.saurabhmishra.githubpullrequests.databinding.ActivityHomeBinding
 
+@AndroidEntryPoint
 class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>() {
     override fun layoutId(): Int {
         return R.layout.activity_home
