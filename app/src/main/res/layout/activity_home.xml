@@ -8,6 +8,30 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeActivity">
 
+    <TextView
+      android:id="@+id/title"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/list_of_denisidoro_navi_repository_s_closed_pull_requests"
+      android:gravity="center"
+      android:textSize="@dimen/title_text_size"
+      android:textColor="@color/black"
+      android:textStyle="bold"
+      app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recycler"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_marginTop="12dp"
+      android:background="@color/grey"
+      android:padding="12dp"
+      android:clipToPadding="false"
+      app:layout_constraintTop_toBottomOf="@id/title"
+      app:layout_constraintBottom_toBottomOf="parent"
+      tools:listitem="@layout/pull_request_item"
+      tools:itemCount="5"/>
+
   </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
