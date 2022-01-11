@@ -23,7 +23,7 @@ data class User(
     @Json(name = "html_url")
     val htmlUrl: String? = null,
     @Json(name = "id")
-    val id: Int? = null,
+    val id: Long? = null,
     @Json(name = "login")
     val login: String? = null,
     @Json(name = "node_id")

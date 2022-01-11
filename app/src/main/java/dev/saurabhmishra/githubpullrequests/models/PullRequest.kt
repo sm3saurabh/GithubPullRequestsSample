@@ -40,7 +40,7 @@ data class PullRequest(
     @Json(name = "html_url")
     val htmlUrl: String? = null,
     @Json(name = "id")
-    val id: Int? = null,
+    val id: Long? = null,
     @Json(name = "issue_url")
     val issueUrl: String? = null,
     @Json(name = "labels")
@@ -58,7 +58,7 @@ data class PullRequest(
     @Json(name = "node_id")
     val nodeId: String? = null,
     @Json(name = "number")
-    val number: Int? = null,
+    val number: Long? = null,
     @Json(name = "patch_url")
     val patchUrl: String? = null,
     @Json(name = "requested_reviewers")
@@ -101,7 +101,7 @@ data class Assignee(
     @Json(name = "html_url")
     val htmlUrl: String? = null,
     @Json(name = "id")
-    val id: Int? = null,
+    val id: Long? = null,
     @Json(name = "login")
     val login: String? = null,
     @Json(name = "node_id")
@@ -164,7 +164,7 @@ data class Label(
     @Json(name = "description")
     val description: String? = null,
     @Json(name = "id")
-    val id: Int? = null,
+    val id: Long? = null,
     @Json(name = "name")
     val name: String? = null,
     @Json(name = "node_id")
@@ -200,7 +200,7 @@ data class Milestone(
     @Json(name = "closed_at")
     val closedAt: String? = null,
     @Json(name = "closed_issues")
-    val closedIssues: Int? = null,
+    val closedIssues: Long? = null,
     @Json(name = "created_at")
     val createdAt: String? = null,
     @Json(name = "creator")
@@ -212,15 +212,15 @@ data class Milestone(
     @Json(name = "html_url")
     val htmlUrl: String? = null,
     @Json(name = "id")
-    val id: Int? = null,
+    val id: Long? = null,
     @Json(name = "labels_url")
     val labelsUrl: String? = null,
     @Json(name = "node_id")
     val nodeId: String? = null,
     @Json(name = "number")
-    val number: Int? = null,
+    val number: Long? = null,
     @Json(name = "open_issues")
-    val openIssues: Int? = null,
+    val openIssues: Long? = null,
     @Json(name = "state")
     val state: String? = null,
     @Json(name = "title")
@@ -240,7 +240,7 @@ data class RequestedTeam(
     @Json(name = "html_url")
     val htmlUrl: String? = null,
     @Json(name = "id")
-    val id: Int? = null,
+    val id: Long? = null,
     @Json(name = "members_url")
     val membersUrl: String? = null,
     @Json(name = "name")
